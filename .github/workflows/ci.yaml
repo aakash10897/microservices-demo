@@ -28,6 +28,6 @@ jobs:
         run: |
               make build
       - name: Docker build
-        run: make build
+        run: make docker_build
       - name: Docker push
         run: make docker_push IMAGE_TAG=${{ github.sha }} DOCKER_REGISTRY=${{ secrets.DOCKERHUB_USERNAME }}
