@@ -1,0 +1,28 @@
+management.endpoint.health.probes.enabled: true
+management.health.livenessstate.enabled: true
+management.health.readinessstate.enabled: true
+management.endpoint.health.show-details: always
+management.endpoints.web.exposure.include: health,info,prometheus,metrics
+management.server.port: 8081
+management.server.ssl.enabled: false
+
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  datasource:
+    url: "${RDS_POSTGRES_JDBC_URL:jdbc:postgresql://localhost:5432/}"
+    username: "${RDS_POSTGRES_USERNAME:admin}"
+    password: "${RDS_POSTGRES_PASSWORD:admin}"
+    max-active: 20
+    initial-size: 5
+    max-wait: 60000
+    validation-query: SELECT 1
+    auto-commit: false

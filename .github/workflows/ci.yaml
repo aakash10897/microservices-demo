@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: ${{ github.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PERSONAL_PAT }}
+      - name: Docker Registry Login
+        uses: actions/docker-login-action@v2
+        with:
+          username: ${{ secrets.PERSONAL_USERNAME }}
+          password: ${{ secrets.PERSONAL_PASSWORD }}
+      - name: Docker build
+        run: make build
+      - name: Docker push
+        run: make push IMAGE_TAG=${{ github.sha }} DOCKER_REGISTRY="aakash10897"
