@@ -151,19 +151,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-		<repository>
-			<id>expedia</id>
-			<name>Expedia</name>
-			<url>https://artylab.expedia.biz/public-maven-virtual</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>interval:30</updatePolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>interval:30</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
 </project>
