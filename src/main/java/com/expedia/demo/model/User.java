@@ -5,21 +5,22 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 
 @Entity(name = "user_details")
 @Getter
+@Builder
+@AllArgsConstructor
 public class User {
-	
+
 	protected User() {
-		
+
 	}
 	
 	@Id
@@ -37,7 +38,7 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<Post> posts;
- 	
+
 	public User(Integer id, String name, LocalDate birthDate) {
 		super();
 		this.id = id;

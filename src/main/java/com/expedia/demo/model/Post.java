@@ -2,14 +2,12 @@ package com.expedia.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 
 @Entity
+@Builder
 public class Post {
 	
 	@Id

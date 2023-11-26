@@ -1,0 +1,22 @@
+
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: create
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+        show-sql: true
+    main:
+        allow-circular-references: true
+        allow-bean-definition-overriding: true
+    datasource:
+        url: "${RDS_POSTGRES_JDBC_URL:jdbc:postgresql://localhost:5432/}"
+        username: "${RDS_POSTGRES_USERNAME:admin}"
+        password: "${RDS_POSTGRES_PASSWORD:admin}"
+        max-active: 20
+        initial-size: 5
+        max-wait: 60000
+        validation-query: SELECT 1
+        auto-commit: false
