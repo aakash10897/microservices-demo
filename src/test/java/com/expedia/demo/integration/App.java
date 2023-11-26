@@ -40,7 +40,6 @@ public class App {
                     "spring.datasource.password=" + postgreDBContainer.getPassword(),
                     "spring.datasource.auto-commit=false"
             );
-            System.out.println("asdf");
         }
     }
 
