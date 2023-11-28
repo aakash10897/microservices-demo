@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.expedia.demo.exception.UserNotFoundException;
-import com.expedia.demo.repository.PostRepository;
 import com.expedia.demo.model.Post;
 import com.expedia.demo.model.User;
 import com.expedia.demo.service.impl.PostJpaService;
@@ -19,16 +18,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import jakarta.validation.Valid;
 
 @RestController
-public class UserJpaResource {
+public class UserJpaController {
 
 	private UserJpaService userJpaService;
 	
 	private PostJpaService postJpaService;
 
-	public UserJpaResource(final UserJpaService userJpaService, final PostJpaService postJpaService){
+	public UserJpaController(final UserJpaService userJpaService, final PostJpaService postJpaService){
 		this.userJpaService = userJpaService;
 		this.postJpaService = postJpaService;
 	}
@@ -72,7 +70,7 @@ public class UserJpaResource {
 	}
 
 	@PostMapping("/jpa/users")
-	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+	public ResponseEntity<User> createUser(@RequestBody User user) {
 		
 		User savedUser = userJpaService.save(user);
 
@@ -86,7 +84,7 @@ public class UserJpaResource {
 
 
 	@PostMapping("/jpa/users/{id}/posts")
-	public ResponseEntity<Object> createPostForUser(@PathVariable int id, @Valid @RequestBody Post post) {
+	public ResponseEntity<Object> createPostForUser(@PathVariable int id, @RequestBody Post post) {
 		Optional<User> user = userJpaService.findOne(id);
 		
 		if(user.isEmpty())

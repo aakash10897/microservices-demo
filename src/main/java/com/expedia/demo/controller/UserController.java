@@ -17,14 +17,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
+
 
 @RestController
-public class UserResource {
+public class UserController {
 
 	private UserDaoService service;
 
-	public UserResource(UserDaoService service) {
+	public UserController(UserDaoService service) {
 		this.service = service;
 	}
 

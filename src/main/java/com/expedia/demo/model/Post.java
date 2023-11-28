@@ -1,13 +1,18 @@
 package com.expedia.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post {
 	
 	@Id

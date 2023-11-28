@@ -27,7 +27,7 @@ public class RestfulWebServicesApplication {
 		return new PostJpaService(postRepository);
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(RestfulWebServicesApplication.class, args);
+		SpringApplication.run(RestfulWebServicesApplication.class);
 	}
 
 }
