@@ -1,5 +1,4 @@
 package com.expedia.demo.integration;
-import com.expedia.demo.integration.config.BeanConfig;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.context.ApplicationContextInitializer;
